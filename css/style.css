@@ -1,58 +1,370 @@
 /* Ini File CSS */
 
-main {
-    display: flex;
-    gap: 32px;
-    padding: 32px;
+.navbar{
+	background: #558BFF;
+	margin: 0;
+	padding: 20px 30px;
+}
+ 
+.logo{
+	width: 200px;
+	height: 50px;
+}
+ 
+.container{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+ 
+.tombol{
+	display: none;
+	color: white;
+	font-size: 14pt;			
+}
+ 
+.tombol:hover{
+	cursor: pointer;
+}
+ 
+.menu{
+	margin: 0;
+	display: flex;
+	list-style: none;
+	padding: 0;		
+	font-family: Arial, Helvetica, sans-serif;	
+}
+ 
+.menu li{
+	padding-left: 0;
+	margin-right: 10px;
+}
+ 
+.menu li a{
+	padding:10px;
+	color: white;
+	text-decoration: none;
+	display: inline-block;
 }
 
-footer {
-    text-align: center;
+@media screen and (max-width: 768px) {
+	.menu {
+		display: none;
+	}
+ 
+	.menu.aktif{
+		display:inline-block;
+		position: absolute;
+		top: 64px;
+		background: #212121;
+		padding: 10px 20px;
+		right: 0;
+		left: 0;
+	}
+ 
+	.menu.aktif li a{
+		padding: 10px;
+		display: inline-block !important;
+	}
+ 
+	.tombol {
+		display: block;
+	}
+}
+
+main {
+    display: flex;
+    gap: 50px;
+    padding: 32px;
+    font-family:Arial, Helvetica, sans-serif;
+    text-align: justify;
+	align-items: baseline;
+}
+
+/*Responsive Main Content*/
+@media screen and (max-width: 768px) {
+	main {
+		display: flex;
+    	gap: 50px;
+    	padding: 32px;
+    	font-family:Arial, Helvetica, sans-serif;
+    	text-align: left;
+		align-items: baseline;
+	 	flex-wrap: wrap;
+	}
+}
+	
+
+.mulai-hitung {
+	text-align: center;
+	font-family:Arial, Helvetica, sans-serif;
+}
+
+.feature-information {
+	text-align: center;
+	font-family:Arial, Helvetica, sans-serif;
 }
 
 .main-header {
     text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+
 }
 
 input[type=number] {
-    width: 100%;
+    width: auto;
     padding: 12px 20px;
     margin: 8px 0;
     box-sizing: border-box;
+	border-style:none ;
+	border-radius: none;
+	border-color: none;
+	border-bottom: 2px solid #FFAD00;
+	outline: none;
+	background-color: #558BFF;
+	color: white;
+	font-size:large;
 }
 
 form {
-    background-color: antiquewhite;
+    background-color: #558BFF;
     padding: 32px;
+    text-align: left;
+    color: white;
+    border-radius: 10px;
 }
 
 .form-group {
     display: flex;
     flex-direction: column;
     padding-bottom: 16px;
+    text-align: left;
+    color: white;
 }
 
 button {
     border: none;
     padding: 8px;
     color: antiquewhite;
+    box-shadow: 2px 2px 10px 2px rgba(0, 0, 0, 0.3);
 }
 
-.bg-black {
+.tombol-hitung-bmi {
+    background-color: #FC4E0F;
+    border-radius: 6px;
+    padding: 16px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.tombol-hitung-bmi:hover {
     background-color: black;
+    border-radius: 6px;
+    padding: 16px;
 }
 
-.bg-cadet-blue {
-    background-color: cadetblue;
+.tombol-reset {
+    background-color: #FFAD00;
+    border-radius: 6px;
+    padding: 16px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.tombol-reset:hover {
+    background-color:#f44336;
+    border-radius: 6px;
+    padding: 16px;
+    hover
 }
 
 .result-section {
     padding: 16px;
     text-align: center;
-    background-color: antiquewhite;
 }
 
 #result-bmi {
+    display: block;
+    padding: 20px;
     font-size: xxx-large;
-    font-family: math;
+    font-family:Arial, Helvetica, sans-serif;
+    background-color: #558BFF;
+    text-align: center;
+    color: white;
+}
+
+.footer{
+	position: fixed;
+	bottom: 0;
+}
+
+@media (max-height:800px) {
+	footer { position: static; }
+	header { padding-top:40px; }
+}
+
+.my-footer{
+	background-color:#558BFF;
+	box-sizing: border-box;
+	width: 100%;
+	text-align: left;
+	font: bold 16px sans-serif;
+	padding: 50px 50px 60px 50px;
+	margin-top: 80px;
+}
+
+.my-footer .footer-left,
+.my-footer .footer-center,
+.my-footer .footer-right{
+	display: inline-block;
+	vertical-align: top;
+}
+
+/* Footer left */
+
+.my-footer .footer-left{
+	width: 30%;
+}
+
+.my-footer h3{
+	color:  #ffffff;
+	font: normal 36px "Arial, Helvetica, sans-serif";
+	margin: 0;
+}
+
+/* The company logo */
+
+.my-footer .footer-left img{
+	width: 40%;
+}
+
+.my-footer h3 span{
+	color:  #e0ac1c;
+}
+
+/* Footer links */
+
+.my-footer .footer-links{
+	color:  #FFAD00;
+	margin: 20px 0 12px;
+}
+
+.my-footer .footer-links a{
+	display:inline-block;
+	line-height: 1.8;
+	text-decoration: none;
+	color:white;
+}
+
+.my-footer .footer-company-name{
+	color:  #ffffff;
+	font-size: 14px;
+	font-weight: normal;
+	margin: 0;
+}
+
+/* Footer Center */
+
+.my-footer .footer-center{
+	width: 35%;
+}
+
+
+.my-footer .footer-center i{
+	background-color:  #FC4E0F;
+	color: #ffffff;
+	font-size: 18px;
+	width: 35px;
+	height: 35px;
+	border-radius: ;
+	text-align: center;
+	line-height: 42px;
+	margin: 10px 15px;
+	vertical-align: middle;
+}
+
+.my-footer .footer-center i.fa-envelope{
+	font-size: 17px;
+	line-height: 38px;
+}
+
+.my-footer .footer-center p{
+	display: inline-block;
+	color: #ffffff;
+	vertical-align: middle;
+	margin:0;
+}
+
+.my-footer .footer-center p span{
+	display:block;
+	font-weight: normal;
+	font-size:14px;
+	line-height:2;
+}
+
+.my-footer .footer-center p a{
+	color:  #e0ac1c;
+	text-decoration: none;;
+}
+
+
+/* Footer Right */
+
+.my-footer .footer-right{
+	width: 30%;
+}
+
+.my-footer .footer-company-about{
+	line-height: 20px;
+	color:  #ffffff;
+	font-size: 16px;
+	font-weight: normal;
+	margin: 0;
+}
+
+.my-footer .footer-company-about span{
+	display: block;
+	color:  #ffffff;
+	font-size: 18px;
+	font-weight: bold;
+	margin-bottom: 20px;
+}
+
+.my-footer .footer-icons{
+	margin-top: 25px;
+}
+
+.my-footer .footer-icons a{
+	display: inline-block;
+	width: 35px;
+	height: 35px;
+	cursor: pointer;
+	background-color:  #FC4E0F;
+	border-radius: 2px;
+	font-size: 20px;
+	color: #ffffff;
+	text-align: center;
+	line-height: 35px;
+
+	margin-right: 3px;
+	margin-bottom: 5px;
+}
+
+/* Biar Footernya Responsive */
+
+@media (max-width: 880px) {
+
+	.my-footer  .footer-left,
+	.my-footer  .footer-center,
+	.my-footer  .footer-right{
+		display: block;
+		width: 100%;
+		margin-bottom: 40px;
+		text-align: center;
+	}
+
+	.footer  .footer-center i{
+		margin-left: 0;
+	}
+
 }

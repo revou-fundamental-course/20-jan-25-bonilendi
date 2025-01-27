@@ -4,35 +4,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Kalkulator BMI</title>
     <link rel="stylesheet" href="css\style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+    <meta name="description" content="Kalkulator BMI sederhana untuk menghitung indeks massa tubuh Anda. Cari tahu berat badan ideal Anda untuk menjaga kesehatan tubuh.">
+    <meta name="keywords" content="kalkulator bmi, indeks massa tubuh, berat badan ideal, kesehatan tubuh">
+    <meta name="author" content="Boni Lendi">
+    <meta name="robots" content="index, follow">
 </head>
 
 <body>
-    <header class="main-header">
-        <h1>KALKULATOR BMI</h1>
-    </header>
+    <nav class="navbar">
+		<div class="container">
+ 
+			<img src="asset\logo-bmi-calculator.png" class="logo"></img>
+			
+			<ul class="menu">
+				<li><a href="#">About</a></li>
+				<li><a href="#">Contact</a></li>
+			</ul>
+			
+			<div class="tombol">
+				&#9776;
+			</div>
+ 
+		</div>
+	</nav>
 
     <main>
         <!-- Konten Kiri -->
         <section>
              <!-- Introduction -->
+            <header class="mulai-hitung">
+                <H2>MULAI HITUNG</H2>
+                </header>
         <article>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-                industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type
-                and
-                scrambled it to make a type specimen book. It has survived not only five centuries, but also the
-                leap
-                into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with
-                the
-                release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop
-                publishing
-                software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+            <p>Berat badan ideal adalah impian semua orang. Tidak hanya memiliki bentuk tubuh yang menunjang
+                penampilan, berat badan ideal juga menandakan kondisi tubuh yang sehat. Bagaimana denganmu? 
+                Yuk hitung sekarang di kalkulator BMI.</p>
         </article>
 
         <!-- Form -->
         <form>
-            <div class="form group">
+            <div class="input-group">
+                <input type="radio" name="gender" id="male" value="Pria" class="form-input-check" checked>
+                <label for="male">Pria</label>
+                <input type="radio" name="gender" id="female" value="Wanita" class="form-input-check">
+                <label for="female">Wanita</label>
+              </div>
+              <span id="genderErrorMessage" class="error-message"></span>
+            </div>
+            <br>
+            <div class="form-group">
                 <label for="input-Berat-Badan">Berat Badan (Kg)</label>
                 <input type="number" id="input-berat-badan">
             </div>
@@ -48,34 +71,40 @@
             </div>
             
             <div>
-                <button class="bg-cadet-blue">Hitung BMI</button>
-                <button class="bg-black">Reset</button>
+                <button class="tombol-hitung-bmi">Hitung BMI</button>
+                <button class="tombol-reset">Reset</button>
             </div>
         </form>
 
         <!-- Feature Information -->
         <article>
             <header>
-                <h2>Feature Information</h2>
+                <h2 class="feature-information">FEATURE INFORMATION</h2>
             </header>
 
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-                industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type
-                and
-                scrambled it to make a type specimen book. It has survived not only five centuries, but also the
-                leap
-                into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with
-                the
-                release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop
-                publishing
-                software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+            <ol type="1">
+                <li>Menghitung berat badan</li>
+                <li>Menentukan Kategori berat badan ideal</li> 
+                <li>Mempersiapkan program penurunan berat badan</li> 
+
+            <p>Kalkulator ini hanya boleh digunakan oleh orang dewasa (wanita hamil atau menyusui tidak boleh 
+                mengandalkan pembacaan BMI ini) dan tidak ada tindakan yang harus diambil berdasarkan nilainya
+                selain berkonsultasi dengan orang yang memenuhi syarat seperti dokter.
+            </p>
+                
+            <p>Kalkulator akan memberi Anda gambaran tentang perbandingan berat badan Anda dengan nilai umum. 
+                Indeks Massa Tubuh (atau BMI) dihitung sebagai berat badan Anda (dalam Kilogram) dibagi dengan 
+                kuadrat tinggi badan anda (dalam meter) atau BMI = Kg/M<sup>2</sup>.
+            </p>   
+                
         </article>
     </section>
+
     <!-- Konten Kanan-->
-    <section>
+    <header>
         <section class="result-section">
             <header>
-                <h2>Hasil</h2>
+                <h2>HASIL</h2>
             </header>
 
             <div>
@@ -84,23 +113,54 @@
         </section>
 
         <article>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-                industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type
-                and
-                scrambled it to make a type specimen book. It has survived not only five centuries, but also the
-                leap
-                into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with
-                the
-                release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop
-                publishing
-                software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+            <p>BMI tidak sepenuhnya mewakili diagnosis menyeluruh dari kesehatan tubuh dan resiko penyakit
+                seseorang. Anda perlu berkonsultasi lebih lanjut mengenai resiko kekhawatiran Anda terkait 
+                dengan berat badan Anda.</p>
         </article>
     </section>
 </main>
 
-<footer>
-    <span>Made by Boni Lendi@2025</span>
-</footer>
+        <footer class="my-footer">
+
+			<div class="footer-left">
+          <img src="asset\logo-boni-lendi.png">
+
+				<p class="footer-links">Graphic Designer, Branding & Identity</p>
+
+				<p class="footer-company-name">Boni Lendi © 2025 </p>
+			</div>
+
+			<div class="footer-center">
+				<div>
+					<i class="fa fa-map-marker"></i>
+					  <p><span>Grafikologi Studio - Way Muli,
+						 No. 033 - Lampung Selatan</span>
+						Lampung, Indonesia - 35552</p>
+				</div>
+
+				<div>
+					<i class="fa fa-phone"></i>
+					<p>+62 813 7644 9058</p>
+				</div>
+				<div>
+					<i class="fa fa-envelope"></i>
+					<p><a href="https://www.grafikologi.studio.com">boni.lendi03@gmail.com</a></p>
+				</div>
+			</div>
+			<div class="footer-right">
+				<p class="footer-company-about">
+					<span>About Me</span>
+					I am a Graphic Designer.  I provide Graphic Design & Branding Identity services. 
+                    I try to bridge your vision to produce output that helps your business grow even 
+                    as times change.</p>
+				<div class="footer-icons">
+					<a href="https://web.facebook.com/profile.php?id=61554329375194"><i class="fab fa-facebook"></i></a>
+					<a href="https://www.instagram.com/boni_lendi/"><i class="fab fa-instagram"></i></a>
+					<a href="linkedin.com/in/boni-lendi-6462b8148"><i class="fab fa-linkedin"></i></a>
+					<a href="https://grafikologistudio.com"><i class="fas fa-globe"></i></a>
+				</div>
+			</div>
+		</footer>
 </body>
 
 </html>
