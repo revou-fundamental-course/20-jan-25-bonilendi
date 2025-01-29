@@ -232,7 +232,7 @@ button {
 
 .display-result-BMI {
 	display: flex;
-	flex-direction: row;
+	flex-direction: column;
 	align-items: center;
 	padding: 20px;
 	background-color: #FC4E0F;
