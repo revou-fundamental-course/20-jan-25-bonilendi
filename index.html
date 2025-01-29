@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kalkulator BMI</title>
+    <title>Kalkulator BMI | Boni Lendi</title>
     <link rel="stylesheet" href="css\style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
     <meta name="description" content="Kalkulator BMI sederhana untuk menghitung indeks massa tubuh Anda. Cari tahu berat badan ideal Anda untuk menjaga kesehatan tubuh.">
@@ -32,11 +32,11 @@
 	</nav>
 
     <main>
-        <!-- Konten Kiri -->
-        <section>
+        <!-- BMI CALCULATOR -->
+        <section class="section-1" id="home">
              <!-- Introduction -->
             <header class="mulai-hitung">
-                <H2>MULAI HITUNG</H2>
+                <h2>MULAI HITUNG</h2>
                 </header>
         <article>
             <p>Berat badan ideal adalah impian semua orang. Tidak hanya memiliki bentuk tubuh yang menunjang
@@ -45,7 +45,8 @@
         </article>
 
         <!-- Form -->
-        <form>
+        <form class="form" id="form">
+            <div><p>Jenis Kelamin</p></div>
             <div class="input-group">
                 <input type="radio" name="gender" id="male" value="Pria" class="form-input-check" checked>
                 <label for="male">Pria</label>
@@ -56,23 +57,26 @@
             </div>
             <br>
             <div class="form-group">
-                <label for="input-Berat-Badan">Berat Badan (Kg)</label>
-                <input type="number" id="input-berat-badan">
+                <label class ="form-label" for="weight">Berat Badan (Kg)</label>
+                <input type="number" name="weight" id="weight" class="form-input" min="1" aria-describedby="weightDesc">
+                <span id="weightErrorMessage" class="error-message"></span>
             </div>
 
             <div class="form-group">
-                <label for="input-usia">Usia (tahun)</label>
-                <input type="number" id="input-usia">
+                <label class="form-label" for="age">Umur (tahun)</label>
+                <input type="number" name="age" id="age" class="form-input" min="1" aria-describedby="ageDesc">
+                <span id="ageErrorMessage" class="error-message"></span>
             </div>
 
             <div class="form-group">
-                <label for="input-tinggi-badan">Tinggi Badan (cm)</label>
-                <input type="number" id="input-tinggi-badan">
+                <label class="form-label" for="height">Tinggi Badan (cm)</label>
+                <input type="number" name="height" id="height" class="form-input" min="1" aria-describedby="heightDesc">
+                <span id="heightErrorMessage" class="error-message"></span>
             </div>
             
             <div>
-                <button class="tombol-hitung-bmi">Hitung BMI</button>
-                <button class="tombol-reset">Reset</button>
+                <button type="button" class="tombol-hitung-bmi" onclick="checkBMI()">Hitung BMI</button>
+                <button TYPE="RESET" class="tombol-reset">Reset</button>
             </div>
         </form>
 
@@ -100,23 +104,47 @@
         </article>
     </section>
 
-    <!-- Konten Kanan-->
-    <header>
-        <section class="result-section">
+    <!-- RESULT SECTION OF BMI-->
+        <section class="result-hidden" id="result">
             <header>
-                <h2>HASIL</h2>
+                <h2 class="result-title">HASIL</h2>
             </header>
-
-            <div>
-                <span id="result-bmi">0</span>
+            <div class="display-result-BMI">
+                <div id="result-title" class="result-category"></div>
+                <div id="result-bmi">0</div>
+                <p id="result-desc" class="result-desc"></p>
+                <button class="btn-download">Download Hasil BMI</button>
             </div>
+                <div class="mb-1 paragraph">
+                <p id="result-text"></p>
+                <p id="suggestion-text"></p>
+                <p id="advice-text"></p>
+                <div class="button-result">
+                    <button class="btn-consult1">Konsultasi Ahli Gizi Via Aplikasi</button>
+                    <button class="btn-regist1">Registrasi Online Ahli Gizi</button>
+            </div>
+            <p class="disclaimer">
+                BMI tidak sepenuhnya mewakili diagnosis menyeluruh dari kesehatan 
+                tubuh dan resiko penyakit seseorang, Anda perlu konsultasi lebih 
+                lanjut mengenai resiko dan kekhawatiran Anda terkait dengan berat 
+                badan Anda.
+            </p>
+            </div>
+                <div class="display-risk">
+                <h6 id="risk-title"></h6>
+                <ul id="list-risk" class="list-risk"></ul>
+            </div>
+            <br></br>
+            <div class="button-cta">
+                <button class="btn-consult2">Konsultasi Dokter Via Aplikasi</button>
+                <button class="btn-regist2">Registrasi Online Sekarang</button>
+            </div>
+        </div>
+        <br></br>
+        <div class="btn-ca">
+            <button class="btn-count-again" onclick="regenerateBMI()">Hitung Lagi</button>
+        </div>
         </section>
-
-        <article>
-            <p>BMI tidak sepenuhnya mewakili diagnosis menyeluruh dari kesehatan tubuh dan resiko penyakit
-                seseorang. Anda perlu berkonsultasi lebih lanjut mengenai resiko kekhawatiran Anda terkait 
-                dengan berat badan Anda.</p>
-        </article>
     </section>
 </main>
 
@@ -161,6 +189,8 @@
 				</div>
 			</div>
 		</footer>
+
+    <script src="js\script.js"></script>
 </body>
 
 </html>
