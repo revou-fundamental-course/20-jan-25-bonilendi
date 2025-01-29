@@ -5,9 +5,9 @@ Kalkulator BMI Sederhana ini dikembangkan sebagai bagian dari Tugas Akhir untuk 
 ## Pengantar
 BMI adalah ukuran lemak tubuh berdasarkan berat dan tinggi seseorang. Ini umumnya digunakan untuk menilai apakah seseorang memiliki berat badan yang sehat sesuai dengan tinggi mereka. 
 Kalkulator BMI sederhana ini memungkinkan pengguna memasukkan berat badan, tinggi badan, usia, dan jenis kelamin mereka, dan menghitung BMI mereka serta memberikan informasi tentang 
-kategori berat badan. Tentu saya menyadari Aplikasi ini masih butuh banyak pengembangan kedepannya.
+kategori berat badan. Tentu saya menyadari Aplikasi ini masih butuh banyak pengembangan kedepannya. Untuk itu mohon berikan saran ya!
 
-##Disclaimer 
+## Disclaimer 
 1. Hasil dari perhitungan Kalkulator BMI ini diambil dari berbagai referensi sumber. 
 2. Kalkulator BMI ini tidak sepenuhnya mewakili diagnosis menyeluruh dari kesehatan tubuh dan resiko penyakit seseorang,
    Anda perlu konsultasi lebih lanjut mengenai resiko dan kekhawatiran Anda terkait dengan berat badan Anda.
