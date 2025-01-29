@@ -339,15 +339,16 @@ button {
     font-weight: bold;
 	align-items: center;
 	display: flex;
-	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
 
 .btn-download:hover{
 	background-color: #3776fc;
 	color: white;
-	border-radius: 6px;
+	border-radius: 20px;
     padding: 12px;
     font-weight: bold;
+	align-items: center;
+	display: flex;
 }
 
 .button-result {
@@ -368,16 +369,17 @@ button {
 .btn-consult1:hover {
 	background-color: #3776fc;
 	color: white;
-	border-radius: 6px;
+	border-radius: 20px;
     padding: 12px;
     font-weight: bold;
+	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
 
 
 .btn-consult2 {
 	background-color: #558BFF;
 	color: white;
-	border-radius: 6px;
+	border-radius: 20px;
     padding: 12px;
     font-weight: bold;
 	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
@@ -386,16 +388,17 @@ button {
 .btn-consult2:hover {
 	background-color: #3776fc;
 	color: white;
-	border-radius: 6px;
+	border-radius: 20px;
     padding: 12px;
     font-weight: bold;
+	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
 
 
 .btn-regist1 {
 	background-color: #FFAD00;
 	color: white;
-	border-radius: 6px;
+	border-radius: 20px;
     padding: 12px;
     font-weight: bold;
 	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
@@ -404,15 +407,16 @@ button {
 .btn-regist1:hover {
 	background-color: #db9703;
 	color: white;
-	border-radius: 6px;
+	border-radius: 20px;
     padding: 12px;
     font-weight: bold;
+	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
 
 .btn-regist2 {
 	background-color: #FFAD00;
 	color: white;
-	border-radius: 6px;
+	border-radius: 20px;
     padding: 12px;
     font-weight: bold;
 	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
@@ -421,9 +425,10 @@ button {
 .btn-regist2:hover {
 	background-color: #db9703;
 	color: white;
-	border-radius: 6px;
+	border-radius: 20px;
     padding: 12px;
     font-weight: bold;
+	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
 
 .button-cta {
@@ -445,7 +450,7 @@ button {
 	justify-content: center;
 	background-color: #558BFF;
 	color: white;
-	border-radius: 6px;
+	border-radius: 20px;
     padding: 12px;
     font-weight: bold;
 	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
@@ -454,9 +459,10 @@ button {
 .btn-count-again:hover {
     background-color:#212121;
 	color: white;
-	border-radius: 6px;
+	border-radius: 20px;
     padding: 12px;
     font-weight: bold;
+	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
 
 
