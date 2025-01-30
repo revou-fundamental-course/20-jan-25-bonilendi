@@ -1,3 +1,16 @@
+
+// Responsive Navbar
+	const tombol = document.querySelector('.tombol');
+	const menu = document.querySelector('.menu');
+		
+// event click pada saat menampilkan Responsive Navbar
+// pada saat tombol di click, menambahkan class aktif pada class menu
+// saat diklik lagi,  class aktif dihilangkan dari class menu (toggle)
+  tombol.addEventListener('click', () => {
+	menu.classList.toggle('aktif');
+		});
+
+
 // Objek untuk menyimpan kategori BMI dan pesan terkaitnya
 const BMI_CATEGORIES = {
   UNDERWEIGHT: 'Kekurangan berat badan',

@@ -57,8 +57,8 @@
 	.menu.aktif{
 		display:inline-block;
 		position: absolute;
-		top: 64px;
-		background: #212121;
+		top: 98px;
+		background: #558BFF;
 		padding: 10px 20px;
 		right: 0;
 		left: 0;
@@ -550,7 +550,6 @@ button {
 	font-size: 18px;
 	width: 35px;
 	height: 35px;
-	border-radius: ;
 	text-align: center;
 	line-height: 42px;
 	margin: 10px 15px;
