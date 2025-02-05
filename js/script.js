@@ -296,9 +296,20 @@ const regenerateBMI = () => {
   document.getElementById('form').scrollIntoView({ behavior: 'smooth' });
 };
 
-/**
- * Sumber:
- * Resiko Penyakit Kekurangan Berat Badan: https://www.alodokter.com/faktor-penyebab-badan-kurus-dan-tips-sehat-untuk-mengatasinya/ Diakses pada 18 July 2023
- * Resiko Penyakit Kelebihan Berat Badan: https://health.detik.com/diet/d-4771038/7-penyakit-ini-bersembunyi-di-balik-berat-badan-berlebih/ Diakses pada 18 July 2023
- * Resiko Penyakit Obesitas: https://www.halodoc.com/kesehatan/obesitas/  Diakses pada 18 July 2023
- */
+// Tombol Download PDF //
+document.getElementById('btn-pdf-download').addEventListener('click', function () {
+  const { jsPDF } = window.jspdf;
+
+  html2canvas(document.getElementById('pdf-download')).then(canvas => {
+      const imgData = canvas.toDataURL('image/png');
+      const pdf = new jsPDF();
+      const imgProps = pdf.getImageProperties(imgData);
+      const pdfWidth = pdf.internal.pageSize.getWidth();
+      const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
+
+      pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
+      pdf.save('hasil-bmi.pdf');
+ // Sembunyikan animasi loading setelah proses selesai
+ document.getElementById('loading').style.display = 'none';
+  });
+});
