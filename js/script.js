@@ -139,7 +139,93 @@ const getAdviceText = (status) => {
   }
 };
 
-// Fungsi untuk mendapatkan daftar penyakit berdasarkan status BMI
+
+// Fungsi untuk menghitung BMI
+  function checkBMI() {
+  const gender = document.querySelector('input[name="gender"]:checked').value;
+  const weight = document.getElementById('weight').value;
+  const age = document.getElementById('age').value;
+  const height = document.getElementById('height').value;
+
+  if (!weight || !age || !height) {
+      alert("Semua field harus diisi!");
+    return;
+    }
+
+    const bmi = (weight / ((height / 100) ** 2)).toFixed(2);
+    const status = checkStatus(bmi, gender);
+    generateDisplay(bmi, status);
+
+    addDataToTable(gender, weight, age, height, bmi);
+
+    displayResult(gender, weight, age, height, bmi);
+    document.getElementById('result').scrollIntoView({ behavior: 'smooth' })
+
+// Menyembunyikan form dan menampilkan hasil
+    document.getElementById('form').reset();
+    document.getElementById('result').classList.remove('result-hidden');
+    document.getElementById('home').classList.add('result-hidden');
+  };
+
+// Fungsi untuk menambahkan data ke tabel
+function addDataToTable(gender, weight, age, height, bmi) {
+  const tableBody = document.querySelector('#dataTable tbody');
+  const row = tableBody.insertRow();
+          
+  const cellGender = row.insertCell(0);
+  const cellWeight = row.insertCell(1);
+  const cellAge = row.insertCell(2);
+  const cellHeight = row.insertCell(3);
+  const cellBMI = row.insertCell(4);
+
+  cellGender.textContent = gender;
+  cellWeight.textContent = weight;
+  cellAge.textContent = age;
+  cellHeight.textContent = height;
+  cellBMI.textContent = bmi;
+}
+
+// Fungsi untuk menampilkan hasil BMI
+function displayResult(gender, weight, age, height, bmi) {
+  const status = checkStatus(bmi, gender);
+  const resultTitle = `Kategori BMI: ${status}`;
+  const resultDesc = `Jenis Kelamin: ${gender}, Berat Badan: ${weight} Kg, Umur: ${age} Tahun, Tinggi Badan: ${height} cm`;
+  const resultText = getDescText(status);
+  const suggestionText = getSuggestionText(status);
+  const adviceText = getAdviceText(status);
+          
+  document.getElementById('result-title').textContent = resultTitle;
+  document.getElementById('result-bmi').textContent = bmi;
+  document.getElementById('result-desc').textContent = resultDesc;
+  document.getElementById('result-text').textContent = resultText;
+  document.getElementById('suggestion-text').textContent = suggestionText;
+  document.getElementById('advice-text').textContent = adviceText;
+
+//MENAMPILKAN HASIL DAN MENYEMBUNYIKAN FORM
+  document.getElementById('result').classList.remove('result-hidden');
+
+  addAdditionalDataToTable(resultTitle, resultDesc, resultText, suggestionText, adviceText);
+};
+
+// Fungsi untuk menambahkan data ke tabel tambahan 1 *
+function addAdditionalDataToTable(resultTitle, resultDesc, resultText, suggestionText, adviceText,) {
+  const tableBody = document.querySelector('#additionalDataTable tbody');
+  const row = tableBody.insertRow();
+
+  const cellResultTitle = row.insertCell(0);
+  const cellResultDesc = row.insertCell(1);
+  const cellResultText = row.insertCell(2);
+  const cellSuggestionText = row.insertCell(3);
+  const cellAdviceText = row.insertCell(4);
+
+  cellResultTitle.textContent = resultTitle;
+  cellResultDesc.textContent = resultDesc;
+  cellResultText.textContent = resultText;
+  cellSuggestionText.textContent = suggestionText;
+  cellAdviceText.textContent = adviceText;
+};
+
+// Fungsi untuk mendapatkan daftar penyakit berdasarkan status BMI */
 const getDiseases = (status) => {
   if (status === BMI_CATEGORIES.UNDERWEIGHT) {
     return ['Kekurangan gizi', 'Gangguan pertumbuhan', 'Sistem kekebalan tubuh lemah', 'Gangguan kesuburan'];
@@ -152,7 +238,7 @@ const getDiseases = (status) => {
   }
 };
 
-// Fungsi untuk menampilkan hasil BMI, status, saran, dan risiko penyakit
+// Fungsi untuk menampilkan hasil BMI, status, saran, dan risiko penyakit */
 const generateDisplay = (bmi, status) => {
   const resultTitle = document.getElementById('result-title');
   resultTitle.innerText = status;
@@ -170,10 +256,10 @@ const generateDisplay = (bmi, status) => {
   const adviceText = document.getElementById('advice-text');
   adviceText.innerText = getAdviceText(status);
 
-  const riskTitle = document.getElementById('risk-title')
+  const riskTitle = document.getElementById('risk-title-1')
   riskTitle.innerText = `Beberapa resiko penyakit yang berasal dari tubuh ${status}`;
 
-  const riskList = document.getElementById('list-risk');
+  const riskList = document.getElementById('list-risk-1');
   riskList.innerHTML = '';
 
   const diseases = getDiseases(status);
@@ -182,41 +268,48 @@ const generateDisplay = (bmi, status) => {
     listItem.innerText = disease;
     riskList.appendChild(listItem);
   });
-
-  // Menyembunyikan form dan menampilkan hasil
-  document.getElementById('form').reset();
-  document.getElementById('result').classList.remove('result-hidden');
-  document.getElementById('home').classList.add('result-hidden');
 };
 
-// Fungsi untuk mengecek BMI dan menampilkan hasil
-const checkBMI = () => {
-  const weight = +document.getElementById('weight').value;
-  const height = +document.getElementById('height').value;
-  const gender = document.querySelector('input[name="gender"]:checked').value;
-  const age = +document.getElementById('age').value;
+//Menampilkan hasil untuk di download
+document.getElementById('btn-download').addEventListener('click', function() {
+  const content1 = document.getElementById('result');
+  const content2 = document.getElementById('pdf-content');
 
-  if (!validateInput(weight, height, age, gender)) {
-    return;
+  // Cek apakah konten1 ditampilkan atau disembunyikan
+  if (content1.classList.contains('result-hidden')) {
+      // Tampilkan konten1 dan sembunyikan konten2
+      content1.classList.remove('result-hidden');
+      content2.classList.add('pdf-content-hidden');
+      this.textContent = 'Show Content 2';
+  } else {
+      // Sembunyikan konten1 dan tampilkan konten2
+      content1.classList.add('result-hidden');
+      content2.classList.remove('pdf-content-hidden');
+      this.textContent = 'Show Content 1';
   }
+});
 
-  const bmi = calculateBMI(weight, height);
-  const status = checkStatus(bmi, gender);
-  generateDisplay(bmi, status);
-
-  document.getElementById('result').scrollIntoView({ behavior: 'smooth' });
-};
-
-// Fungsi untuk mengembalikan tampilan form
+/* Fungsi untuk mengembalikan tampilan form */
 const regenerateBMI = () => {
   document.getElementById('home').classList.remove('result-hidden');
   document.getElementById('result').classList.add('result-hidden');
   document.getElementById('form').scrollIntoView({ behavior: 'smooth' });
 };
 
-/**
- * Sumber:
- * Resiko Penyakit Kekurangan Berat Badan: https://www.alodokter.com/faktor-penyebab-badan-kurus-dan-tips-sehat-untuk-mengatasinya/ Diakses pada 18 July 2023
- * Resiko Penyakit Kelebihan Berat Badan: https://health.detik.com/diet/d-4771038/7-penyakit-ini-bersembunyi-di-balik-berat-badan-berlebih/ Diakses pada 18 July 2023
- * Resiko Penyakit Obesitas: https://www.halodoc.com/kesehatan/obesitas/  Diakses pada 18 July 2023
- */
+// Tombol Download PDF //
+document.getElementById('btn-pdf-download').addEventListener('click', function () {
+  const { jsPDF } = window.jspdf;
+
+  html2canvas(document.getElementById('pdf-download')).then(canvas => {
+      const imgData = canvas.toDataURL('image/png');
+      const pdf = new jsPDF();
+      const imgProps = pdf.getImageProperties(imgData);
+      const pdfWidth = pdf.internal.pageSize.getWidth();
+      const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
+
+      pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
+      pdf.save('hasil-bmi.pdf');
+ // Sembunyikan animasi loading setelah proses selesai
+ document.getElementById('loading').style.display = 'none';
+  });
+});

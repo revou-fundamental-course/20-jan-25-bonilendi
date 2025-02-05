@@ -240,6 +240,8 @@ button {
 	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 	justify-content: center;
 	column-gap: 50px;
+	margin: auto;
+    width: 50%;
 }
 
 .result-category {
@@ -294,7 +296,7 @@ button {
 	align-items: center;
 }
 
-.display-risk{
+.display-risk-1 {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -304,6 +306,8 @@ button {
     border-radius: 10px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     justify-content: center;
+	margin: auto;
+    width: 60%;
 }
 
 #result-bmi {
@@ -316,15 +320,14 @@ button {
 }
   
 
-#risk-title {
+#risk-title-1 #risk-title-2 {
 	font-size: 18px;
 	text-align: center;
 }
 
 
-.list-risk {
+#list-risk-1  #list-risk-2 {
 	list-style: auto;
-    text-align: center;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -465,7 +468,35 @@ button {
 	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
 
+.btn-cta-pdf {
+    display: flex;
+    justify-content: center;
+    column-gap: 40px;
+}
 
+.btn-count-again-pdf {
+    display:flex;
+	flex-direction: row;
+	justify-content: center;
+	background-color: #FC4E0F;
+	color: white;
+	border-radius: 20px;
+    padding: 12px;
+    font-weight: bold;
+	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.btn-count-again-pdf:hover {
+    display:flex;
+	flex-direction: row;
+	justify-content: center;
+	background-color: #558BFF;
+	color: white;
+	border-radius: 20px;
+    padding: 12px;
+    font-weight: bold;
+	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
 /* STYLE FOOTER */
 .footer{
 	position: fixed;
@@ -641,3 +672,6 @@ button {
 	}
 
 }
+
+
+

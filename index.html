@@ -6,7 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kalkulator BMI | Boni Lendi</title>
     <link rel="stylesheet" href="css\style.css">
+    <link rel="stylesheet" href="css\result.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <meta name="description" content="Kalkulator BMI sederhana untuk menghitung indeks massa tubuh Anda. Cari tahu berat badan ideal Anda untuk menjaga kesehatan tubuh.">
     <meta name="keywords" content="kalkulator bmi, indeks massa tubuh, berat badan ideal, kesehatan tubuh">
     <meta name="author" content="Boni Lendi">
@@ -46,8 +49,8 @@
 
         <!-- Form -->
         <form class="form" id="form">
-            <div><p>Jenis Kelamin</p></div>
-            <div class="input-group">
+            <div><p class="jk" id="jk" name="jenis-kelamin">Jenis Kelamin</p></div>
+            <div class="input-group" id="gender-input">
                 <input type="radio" name="gender" id="male" value="Pria" class="form-input-check" checked>
                 <label for="male">Pria</label>
                 <input type="radio" name="gender" id="female" value="Wanita" class="form-input-check">
@@ -109,11 +112,13 @@
             <header>
                 <h2 class="result-title">HASIL</h2>
             </header>
-            <div class="display-result-BMI">
+            <div class="display-result-BMI" id="display-result-BMI">
                 <div id="result-title" class="result-category"></div>
                 <div id="result-bmi">0</div>
                 <p id="result-desc" class="result-desc"></p>
-                <button class="btn-download">Download Hasil BMI</button>
+                <button class="btn-download" id="btn-download">Download Hasil BMI</button>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
             </div>
                 <div class="mb-1 paragraph">
                 <p id="result-text"></p>
@@ -130,9 +135,9 @@
                 badan Anda.
             </p>
             </div>
-                <div class="display-risk">
-                <h6 id="risk-title"></h6>
-                <ul id="list-risk" class="list-risk"></ul>
+                <div class="display-risk-1" id="display-risk-1">
+                <h6 id="risk-title-1"></h6>
+                <ul id="list-risk-1" class="list-risk"></ul>
             </div>
             <br></br>
             <div class="button-cta">
@@ -146,6 +151,104 @@
         </div>
         </section>
     </section>
+
+    <div class="pdf-content-hidden" id="pdf-content">
+        <!-- Elemen animasi loading -->
+        <div class="loading" id="loading">
+            <div class="spinner"></div>
+        </div>
+        <div class="btn-cta-pdf">
+            <button class="btn-pdf-download" id="btn-pdf-download">Download Hasil</button>
+        </div>
+        <br>
+        <div id="pdf-download">
+            <div>
+                <nav class="navbar-pdf">
+                    <div class="container-pdf">
+     
+                    <img src="asset\logo-bmi-calculator.png" class="logo-pdf"></img>
+                
+
+                    <img src="asset\logo-boni-lendi.png" class="logo-boni-pdf"></img>
+                
+                    </div>
+                </nav>
+            </div>
+            <br>
+            <br>
+            <br>
+            <div class="table1" id="table1">
+                    <h3 id="pdf-title">Data Pengguna</h3>
+                    <p id="pdf-body"></p>
+
+                    <table class="table-pdf" id="dataTable">
+                    <thead>
+                    <tr>
+                        <th>Jenis Kelamin</th>
+                        <th>Berat Badan (Kg)</th>
+                        <th>Umur (tahun)</th>
+                        <th>Tinggi Badan (cm)</th>
+                        <th>BMI</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <!-- Data will be inserted here -->
+                    </tbody>
+                    </table>
+            </div>
+
+            <div class="table2" id="table2">
+                    <h3>Hasil BMI</h3>
+                    <table id="additionalDataTable">
+                        <thead>
+                            <tr>
+                                <th>Kategori</th>
+                                <th>Data Pengguna</th>
+                                <th>Hasil</th>
+                                <th>Saran</th>
+                                <th>Rekomendasi</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Additional data will be inserted here -->
+                        </tbody>
+                    </table>
+            </div>
+            <br>
+            <br>
+            <br>
+            <div>
+                <p class="disclaimer-result-pdf"> BMI tidak sepenuhnya mewakili diagnosis menyeluruh dari kesehatan 
+                    tubuh dan resiko penyakit seseorang, Anda perlu konsultasi lebih 
+                    lanjut mengenai resiko dan kekhawatiran Anda terkait dengan berat 
+                    badan Anda.</p>
+            </div>
+
+            <div>
+                <footer class="pdf-footer">
+                    <div class="footer-left">
+                        <img src="asset\logo-boni-lendi.png">
+
+                        <p class="footer-links">Graphic Designer, Branding & Identity</p>
+
+                        <p class="footer-company-name">Boni Lendi © 2025 </p>
+                    </div>
+
+                    <div class="footer-right">
+                        <div>
+                            <p><span>Grafikologi Studio - Way Muli, 
+                            No. 033, Rajabasa, Lampung Selatan,</span>
+                            Lampung, Indonesia - 35552</p>
+                            <p>+62 813 7644 9058</a></p>
+                            <p>boni.lendi03@gmail.com</p>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </div>
+    </div>
+    <br>
+
 </main>
 
         <footer class="my-footer">
